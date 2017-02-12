@@ -1,0 +1,17 @@
+body {
+  background: url(http://www.planwallpaper.com/static/images/518164-backgrounds.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  color: red;
+  border: 2px solid rgb(161, 44, 29);
+}
+
+h4 {
+  color: green;
+}
+
+li {
+  color: rgba(65, 134, 88, 0.26);
+}
