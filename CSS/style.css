@@ -1,0 +1,15 @@
+body {
+  font-size: 12px;
+}
+h1 {
+  font-family: Oswald;
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+}
+
+p {
+  font-family: Indie Flower;
+  font-size: 2.0em;
+  text-decoration: underline;
+}
