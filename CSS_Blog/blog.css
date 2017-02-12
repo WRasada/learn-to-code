@@ -1,0 +1,41 @@
+body {
+  max-width: 700px;
+  width: 70%;
+  margin: 20px auto;
+  border: 25px solid #b2b8bb;
+  padding: 15px 30px;
+}
+
+hr {
+  margin: 50px 0;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(175, 175, 175, 0.98), rgba(0, 0, 0, 0));
+}
+
+h2, h3 {
+  font-family: Oswald
+}
+
+h3 {
+  text-transform: uppercase;
+  color: rgb(61, 143, 154);
+  letter-spacing: 2px;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 30px;
+}
+
+p {
+  font-size: 1em;
+  font-family: Source Sans Pro;
+}
+
+div p:nth-of-type(1){
+  border-left: 6px solid #b2b8bb;
+  padding-left: 5px;
+}
