@@ -1,0 +1,28 @@
+body {
+  padding-top: 70px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.jumbotron h1 {
+  color: #225d3f;
+}
+
+.navbar-default {
+  background-color: #225d3f;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: white;
+}
+
+.jumbotron {
+  margin-top: 15px;
+  background-color: #ecf0f1;
+}
