@@ -1,0 +1,30 @@
+#METHODS
+open() = open file to read/write
+open( 'w / r / w+ / r+')
+  w = overwrite contents of file
+  w+ = w plus read file
+  r = read file (Default)
+  r+ = read/write to beginning of file
+.read = read opened file
+.seek() = move through documents by bytes
+.close() = close and save document
+
+x = x + y
+(x += y)
+
++ = addition
+- = subtraction
+* = multiplication
+/ = division
+% = division but value == remainder
+
+\n = new line in string
+\\ = slash inside string
+\""\ or \''\ = single or double quotes inside string depending on surrounding quotes
+
+puts = output string with \n at end
+print = output string with no \n
+
+ARGV = arguments when script is ran
+
+def = beginning of function/method
