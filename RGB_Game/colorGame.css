@@ -49,6 +49,7 @@ h1 {
 }
 
 button {
+  outline: none;
   height: 100%;
   font-size: inherit;
   border: none;
