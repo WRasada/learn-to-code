@@ -15,7 +15,11 @@ $('input[type="text"]').on("keypress", function(event){
     //grabbing new todo text from input
     var todoText = $(this).val();
     //create new li and add to ul
-    $('ul').append("<li><span>X</span> " + todoText + "</li>");
+    $('ul').append("<li><span><i class='fa fa-trash'></i></span> " + todoText + "</li>");
     $(this).val("");
   }
+})
+
+$('.fa-plus').on("click", function(){
+  $('input').fadeToggle(300);
 })
