@@ -1,0 +1,15 @@
+{
+  "name": "demo_app",
+  "version": "1.0.0",
+  "description": "test package",
+  "main": "app.js",
+  "dependencies": {
+    "cat-me": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
