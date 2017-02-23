@@ -15,31 +15,18 @@ var campgroundSchema = new mongoose.Schema({
 
 var Campground = mongoose.model("Campground", campgroundSchema);
 
-Campground.create(
-  {
-   name: "Salmon Creek",
-   image: "http://eurotravel360.com/wp-content/uploads/2013/05/What-to-Consider-When-Choosing-a-Campsite.jpg"
-   }, function(err, campground){
-   if(err){
-     console.log(err);
-   } else {
-     console.log("New Created Campground: ")
-     console.log(campground);
-   }
-   });
-
-  var campgrounds = [
-    ,
-    {name: "Crystal Cove", image: "http://www.ecocampuk.co.uk/wp-content/uploads/2011/08/Sussex-Campsite-with-Bell-Tents-7.jpeg"},
-    {name: "Big Bear", image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcROHlfB8JwDuedX6Mvmj8SBybiutFuPiThIyGhwYkqYczz-EZJ6"},
-    {name: "Salmon Creek", image: "http://eurotravel360.com/wp-content/uploads/2013/05/What-to-Consider-When-Choosing-a-Campsite.jpg"},
-    {name: "Crystal Cove", image: "http://www.ecocampuk.co.uk/wp-content/uploads/2011/08/Sussex-Campsite-with-Bell-Tents-7.jpeg"},
-    {name: "Big Bear", image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcROHlfB8JwDuedX6Mvmj8SBybiutFuPiThIyGhwYkqYczz-EZJ6"},
-    {name: "Salmon Creek", image: "http://eurotravel360.com/wp-content/uploads/2013/05/What-to-Consider-When-Choosing-a-Campsite.jpg"},
-    {name: "Crystal Cove", image: "http://www.ecocampuk.co.uk/wp-content/uploads/2011/08/Sussex-Campsite-with-Bell-Tents-7.jpeg"},
-    {name: "Big Bear", image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcROHlfB8JwDuedX6Mvmj8SBybiutFuPiThIyGhwYkqYczz-EZJ6"},
-    {name: "Mammoth", image: "https://media-cdn.tripadvisor.com/media/photo-s/02/68/fe/d6/camp-site.jpg"}
-];
+// Campground.create(
+//   {
+//    name: "Big Bear",
+//    image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcROHlfB8JwDuedX6Mvmj8SBybiutFuPiThIyGhwYkqYczz-EZJ6"
+//    }, function(err, campground){
+//    if(err){
+//      console.log(err);
+//    } else {
+//      console.log("New Created Campground: ")
+//      console.log(campground);
+//    }
+//    });
 
 app.get('/', function(req, res){
   res.render('landing');
@@ -50,16 +37,27 @@ app.get('/campgrounds/new', function(req, res){
 });
 
 app.get('/campgrounds', function(req, res){
-  res.render("campgrounds", {campgrounds: campgrounds});
+  // Get all campgrounds from DB
+  Campground.find({}, function(err, campgrounds){
+    if(err){
+      console.log(err);
+    } else {
+      res.render("campgrounds", {campgrounds: campgrounds});
+    }
+  });
 });
 
 app.post('/campgrounds', function(req, res){
   var name = req.body.name;
   var image = req.body.image;
   var newCampground = {name: name, image: image};
-  campgrounds.push(newCampground);
-
-  res.redirect('/campgrounds');
+  Campground.create(newCampground, function(err, newlyCreated){
+    if(err){
+      console.log(err);
+    } else {
+      res.redirect('/campgrounds');
+    }
+  });
 });
 
 app.listen(3000, function(){
