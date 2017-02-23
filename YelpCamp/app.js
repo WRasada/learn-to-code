@@ -1,12 +1,35 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+var express     = require('express'),
+    app         = express(),
+    bodyParser  = require('body-parser'),
+    mongoose    = require('mongoose');
 
+mongoose.connect("mongodb://localhost/yelp_camp")
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
-var campgrounds = [
-    {name: "Salmon Creek", image: "http://eurotravel360.com/wp-content/uploads/2013/05/What-to-Consider-When-Choosing-a-Campsite.jpg"},
+// SCHEMA SETUP
+var campgroundSchema = new mongoose.Schema({
+  name: String,
+  image: String
+});
+
+var Campground = mongoose.model("Campground", campgroundSchema);
+
+Campground.create(
+  {
+   name: "Salmon Creek",
+   image: "http://eurotravel360.com/wp-content/uploads/2013/05/What-to-Consider-When-Choosing-a-Campsite.jpg"
+   }, function(err, campground){
+   if(err){
+     console.log(err);
+   } else {
+     console.log("New Created Campground: ")
+     console.log(campground);
+   }
+   });
+
+  var campgrounds = [
+    ,
     {name: "Crystal Cove", image: "http://www.ecocampuk.co.uk/wp-content/uploads/2011/08/Sussex-Campsite-with-Bell-Tents-7.jpeg"},
     {name: "Big Bear", image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcROHlfB8JwDuedX6Mvmj8SBybiutFuPiThIyGhwYkqYczz-EZJ6"},
     {name: "Salmon Creek", image: "http://eurotravel360.com/wp-content/uploads/2013/05/What-to-Consider-When-Choosing-a-Campsite.jpg"},
