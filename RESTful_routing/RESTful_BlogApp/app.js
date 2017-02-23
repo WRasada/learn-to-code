@@ -88,6 +88,16 @@ app.put('/blogs/:id', function(req, res){
     }
   });
 });
+app.delete('/blogs/:id', function(req, res){
+  Blog.findByIdAndRemove(req.params.id, function(err){
+    if(err){
+      res.redirect('/blogs');
+    } else {
+      res.redirect('/blogs')
+    }
+  });
+});
+// DESTROY ROUTE
 
 app.listen(3000, function(){
   console.log("Server is Running");
