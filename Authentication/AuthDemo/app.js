@@ -29,13 +29,13 @@ app.set('view engine', 'ejs');
 //     Routes
 // ================
 
-  app.get('/', function(req, res){
-    res.render('home');
-  });
+app.get('/', function(req, res){
+  res.render('home');
+});
 
-  app.get('/secret', function(req, res){
-    res.render('secret');
-  });
+app.get('/secret', isLoggedIn, function(req, res){
+  res.render('secret');
+});
 
 // ================
 //  Auth Routes
@@ -75,6 +75,19 @@ app.post('/login', passport.authenticate('local', {
 }) ,function(req, res){
 
 });
+
+app.get('/logout', function(req, res){
+   req.logout();
+   res.redirect("/");
+});
+
+function isLoggedIn(req, res, next){
+  if(req.isAuthenticated()){
+    return next();
+  } else {
+    res.redirect('/login');
+  }
+};
 
   app.listen(3000, function(){
     console.log("Server has started");
