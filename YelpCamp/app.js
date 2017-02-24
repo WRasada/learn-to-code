@@ -5,26 +5,10 @@ var express     = require('express'),
     Campground  = require('./models/campground');
     seedDB      = require('./seeds');
 
-seedDB();
-    
 mongoose.connect("mongodb://localhost/yelp_camp")
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-
-
-// Campground.create(
-//   {
-//    name: "Big Bear",
-//    image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcROHlfB8JwDuedX6Mvmj8SBybiutFuPiThIyGhwYkqYczz-EZJ6",
-//    description: "This is a huge Mountain with no bathrooms, beautiful Big Bear"
-//    }, function(err, campground){
-//    if(err){
-//      console.log(err);
-//    } else {
-//      console.log("New Created Campground: ")
-//      console.log(campground);
-//    }
-//    });
+seedDB();
 
 app.get('/', function(req, res){
   res.render('landing');
@@ -61,10 +45,11 @@ app.post('/campgrounds', function(req, res){
 
 // SHOWS MORE INFO ABOUT ONE CAMPGROUND
 app.get('/campgrounds/:id', function(req, res){
-  Campground.findById(req.params.id, function(err, foundCampground){
+  Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
     if(err){
       console.log("Error");
     } else {
+      console.log(foundCampground);
       res.render('show', {campground: foundCampground});
     }
   });
