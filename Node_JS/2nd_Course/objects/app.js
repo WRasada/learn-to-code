@@ -1,21 +1,28 @@
-var person = {
-  firstname: '',
-  lastname: '',
-  greet: function(){
-    return this.firstname + ' ' + this.lastname;
-  }
+// object properties and methods
+var obj = {
+  greet: 'hello'
 }
 
-var john = Object.create(person);
+console.log(obj.greet);
+console.log(obj['greet']);
 
-john.firstname = 'John';
-john.lastname = 'Doe';
+var prop = 'greet';
 
-var jane = Object.create(person);
+console.log(obj[prop]);
 
-jane.firstname = 'Jane';
-jane.lastname = 'Doe';
+// functions and arrays
+var arr = [];
 
-console.log(john);
-console.log(john.greet())
-console.log(jane.greet())
+arr.push(function() {
+  console.log('Hello world 1');
+});
+arr.push(function() {
+  console.log('Hello world 2');
+});
+arr.push(function() {
+  console.log('Hello world 3');
+});
+
+arr.forEach(function(item){
+  item();
+});

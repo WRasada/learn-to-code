@@ -1,14 +1,15 @@
-// function constructor
-function Person(firstname, lastname){
-  this.firstname = firstname;
-  this.lastname = lastname;
+'use strict';
+
+class Person {
+  constructor(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+  }
+
+  greet() {
+    console.log("Hello, " + this.firstname + ' ' + this.lastname);
+  }
 }
-
-Person.prototype.id = 1;
-
-Person.prototype.greet = function(){
-  console.log("Hello, " + this.firstname + ' ' + this.lastname);
-};
 
 var john = new Person("John", "Doe");
 
@@ -16,9 +17,6 @@ var will = new Person('Will', 'Smith');
 
 will.greet();
 john.greet();
-console.log(john.id);
-john.id = 2;
-console.log(john.id);
 
 console.log(john.__proto__);
 console.log(will.__proto__);
