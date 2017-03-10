@@ -1,40 +1,59 @@
 var express    = require('express'),
     bodyParser = require('body-parser'),
+    mysql      = require('mysql'),
+    mongoose   = require('mongoose'),
     app        = express();
 
+mongoose.connect('mongodb://localhost/express_demo');
+
+var personSchema = new mongoose.Schema({
+  firstname: String,
+  lastname: String,
+  address: String
+});
+
+var Person = mongoose.model('Person', personSchema);
+
+var john = Person({
+  firstname: 'John',
+  lastname: 'Doe',
+  address: '1223 Willard Ave.'
+});
+
+john.save(function(err) {
+  if (err) throw err;
+  console.log('Person saved!');
+});
+
+var jane = Person({
+  firstname: 'Jane',
+  lastname: 'Doe',
+  address: '1444 Willard Ave.'
+});
+
+jane.save(function(err) {
+  if (err) throw err;
+  console.log('Person saved!');
+});
+
 var port = process.env.PORT || 3000;
-var urlencodedParser = bodyParser.urlencoded({extended: false});
-var jsonParser = bodyParser.json();
+var htmlController = require('./controllers/htmlController');
+var apiController = require('./controllers/apiController');
 
 app.use('/assets', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 app.use('/', function(req, res, next){
   console.log('Request URL: ' + req.url);
+
+  Person.find({}, function(err, users){
+    if (err) throw err;
+    console.log(users);
+  })
   next();
 });
 
-app.get('/', function(req, res){
-  res.render('index');
-});
+htmlController(app);
+apiController(app);
 
-app.get('/api', function(req, res){
-  res.json({name: 'Tod', age: '15'});
-});
-
-app.get('/person/:id', function(req, res){
-  res.render('person', { ID: req.params.id, Qstr: req.query.qstr })
-});
-
-app.post('/person', urlencodedParser, function(req, res){
-  res.send('Thank you!');
-  console.log(req.body.firstname);
-  console.log(req.body.lastname);
-});
-
-app.post('/personjson', jsonParser, function(req, res){
-  res.send('Thank you for the json data');
-  console.log(req.body.firstname);
-  console.log(req.body.lastname);
-})
 app.listen(port);

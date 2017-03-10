@@ -23,18 +23,6 @@
       <div class="form-group">
         <input type="submit" value="Submit">
       </div>
-      <script>
-        $.ajax({
-          type: "POST",
-          url: "/personjson",
-          data: JSON.stringify({
-            firstname: 'Jane',
-            lastname: 'Doe'
-          }),
-          dataType: 'json',
-          contentType: 'application/json'
-        })
-      </script>
     </form>
   </body>
 </html>
