@@ -6,7 +6,10 @@ var express     = require('express'),
     mongoose    = require('mongoose'),
     app         = express();
 
+var setupController = require('./controllers/setupController');
 var port = process.env.PORT || 3000;
+
+
 
 mongoose.connect(config.getDbConnectionString());
 
@@ -14,5 +17,6 @@ app.set('view engine', 'ejs');
 app.use('/assets', express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
+setupController(app);
 
 app.listen(port);
