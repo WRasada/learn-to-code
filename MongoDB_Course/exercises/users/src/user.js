@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const postSchema = require('./post');
 const Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
@@ -12,7 +13,8 @@ const userSchema = new Schema({
     },
     required: [true, 'Name is required.']
   },
-  postCount: Number
+  postCount: Number,
+  posts: [postSchema]
 });
 
 const User = mongoose.model('User', userSchema);
