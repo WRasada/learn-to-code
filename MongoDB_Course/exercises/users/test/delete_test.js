@@ -28,12 +28,22 @@ describe('Deleteing a user', () => {
         });
     });
 
-    it('class method findAndRemove', () => {
-      User.findAndRemove({})
+    it('class method findOneAndRemove', (done) => {
+      User.findOneAndRemove({name: 'Joe'})
+        .then(() => User.findOne({ name: 'Joe' }))
+        .then((user) => {
+          assert(user === null);
+          done();
+        });
     });
 
-    it('class method findByIdAndRemove', () => {
-
+    it('class method findByIdAndRemove', (done) => {
+      User.findByIdAndRemove(joe._id)
+        .then(() => User.findOne({ name: 'Joe' }))
+        .then((user) => {
+          assert(user === null);
+          done();
+        });
     });
 
 });
