@@ -13,6 +13,10 @@ const userSchema = new Schema({
     },
     required: [true, 'Name is required.']
   },
+  blogPosts: [{
+    type: Schema.Types.ObjectId,
+    ref: 'BlogPost'
+  }],
   posts: [postSchema],
   likes: Number
 });
