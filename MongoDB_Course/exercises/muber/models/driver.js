@@ -16,7 +16,7 @@ const DriverSchema = new Schema({
     type: Boolean,
     default: false
   },
-  geometry: PointSchemca
+  geometry: PointSchema
 
 });
 
