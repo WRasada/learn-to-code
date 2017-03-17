@@ -53,4 +53,8 @@ describe('Drivers controller', () => {
           });
       });
   });
+
+  it('GET to /api/drivers finds drivers in a location', done => {
+
+  });
 });
