@@ -22,23 +22,36 @@
 
 // Exercise 2
 
-var Tony = {
+// var Tony = {
+//   firstname: 'Tony',
+//   lastname: 'Crostic',
+//   address: {
+//     street: '111 Main St.',
+//     city: 'New York',
+//     state: 'NY'
+//   }
+// };
+//
+// function greet(person) {
+//   console.log('Hi ' + person.firstname);
+// };
+//
+// greet(Tony);
+//
+// greet({
+//   firstname: 'Mary',
+//   lastname: 'Doe'
+// });
+
+// Exercise 3
+
+var objectLiteral = {
   firstname: 'Tony',
-  lastname: 'Crostic',
-  address: {
-    street: '111 Main St.',
-    city: 'New York',
-    state: 'NY'
-  }
-};
+  isAProgrammer: true
+}
 
-function greet(person) {
-  console.log('Hi ' + person.firstname);
-};
+console.log(JSON.stringify(objectLiteral));
 
-greet(Tony);
+var jsonValue = JSON.parse('{ "firstname": "Tony", "isAProgrammer": true }');
 
-greet({
-  firstname: 'Mary',
-  lastname: 'Doe'
-});
+console.log(jsonValue);
