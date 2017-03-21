@@ -88,31 +88,63 @@
 //   console.log('hi');
 // });
 
-// By Value
-var a = 3;
-var b;
+// // By Value
+// var a = 3;
+// var b;
+//
+// b = a;
+// a = 2;
+//
+// console.log(a);
+// console.log(b);
+//
+// // By reference (all objects (including functions))
+// var c = { greeting: 'hi' };
+// var d;
+//
+// d = c;
+// c.greeting = 'hello';  //mutate
+//
+// console.log(d);
+// console.log(c);
+//
+// function changeGreeting(obj) {
+//   obj.greeting = 'Hola';
+// }
+//
+// changeGreeting(d);
+//
+// console.log(c);
+// console.log(d);
 
-b = a;
-a = 2;
+// This keyword
 
-console.log(a);
-console.log(b);
-
-// By reference (all objects (including functions))
-var c = { greeting: 'hi' };
-var d;
-
-d = c;
-c.greeting = 'hello';  //mutate
-
-console.log(d);
-console.log(c);
-
-function changeGreeting(obj) {
-  obj.greeting = 'Hola';
+function a() {
+  console.log(this);
 }
 
-changeGreeting(d);
+a();
 
-console.log(c);
-console.log(d);
+var b = function() {
+  console.log(this);
+}
+
+b();
+
+var c = {
+  name: 'The c object',
+  log: function() {
+    var self = this;
+
+    self.name = 'Updated c object',
+    console.log(self);
+
+    var setName = function(newname) {
+      self.name = newname;
+    }
+    setName('Updated again! the c object');
+    console.log(self);
+  }
+}
+
+c.log();
