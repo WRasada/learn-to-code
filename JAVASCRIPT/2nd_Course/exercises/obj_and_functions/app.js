@@ -174,31 +174,73 @@
 
 // Immediately invoked function expression (IIFE)
 
-// function statement
-function greet(name) {
-  console.log('hello ' + name);
+// // function statement
+// function greet(name) {
+//   console.log('hello ' + name);
+// }
+// greet('John');
+//
+// // function expression
+// var greetFunc = function(name) {
+//   console.log('hello ' + name);
+// }
+// greetFunc('John');
+//
+// // Immediately invoked function expression (IIFE)
+// var greeting = function(name) {
+//
+//   return 'Hello ' + name;
+//
+// }('John');
+//
+// console.log(greeting);
+//
+// var firstname = 'John';
+//
+// (function(name) {
+//   var greeting = 'Hello';
+//   console.log(greeting + ' ' + name);
+//
+// }(firstname)); // IIFE
+
+// .call(), .apply() and .bind()
+
+var person = {
+  firstname: 'John',
+  lastname: 'Doe',
+  getFullName: function() {
+    var fullname = this.firstname + ' ' + this.lastname;
+    return fullname;
+  }
 }
-greet('John');
 
-// function expression
-var greetFunc = function(name) {
-  console.log('hello ' + name);
+var logName = function(lang1, lang2) {
+  console.log('Logged: ' + this.getFullName());
+  console.log('Arguments: ' + lang1 + ' ' + lang2);
+  console.log('-----------');
 }
-greetFunc('John');
 
-// Immediately invoked function expression (IIFE)
-var greeting = function(name) {
+var logPersonName = logName.bind(person);
+logPersonName('en');
 
-  return 'Hello ' + name;
+logName.call(person, 'en', 'es');
+logName.apply(person, ['en', 'es']);
 
-}('John');
 
-console.log(greeting);
+// function borrowing
 
-var firstname = 'John';
+var person2 = {
+  firstname: 'Jane',
+  lastname: 'Doe'
+}
 
-(function(name) {
-  var greeting = 'Hello';
-  console.log(greeting + ' ' + name);
+console.log(person.getFullName.apply(person2));
 
-}(firstname)); // IIFE
+// function currying
+
+function multiply(a, b) {
+  return a * b;
+}
+
+var multiplyByTwo = multiply.bind(this, 2);
+console.log(multiplyByTwo(4));
