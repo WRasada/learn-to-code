@@ -151,23 +151,54 @@
 
 // 'Arguments' keyword
 
-function greet(firstname, lastname, language) {
+// function greet(firstname, lastname, language) {
+//
+//   language = language || 'en';
+//
+//   if (arguments.length === 0) {
+//     console.log('Missing parameters!');
+//     console.log('--------------');
+//     return;
+//   }
+//   console.log(firstname);
+//   console.log(lastname);
+//   console.log(language);
+//   console.log(arguments);
+//   console.log(arguments[0]);
+//   console.log('---------');
+// }
+//
+// greet();
+//
+// greet('John', 'Doe', 'es');
 
-  language = language || 'en';
+// Immediately invoked function expression (IIFE)
 
-  if (arguments.length === 0) {
-    console.log('Missing parameters!');
-    console.log('--------------');
-    return;
-  }
-  console.log(firstname);
-  console.log(lastname);
-  console.log(language);
-  console.log(arguments);
-  console.log(arguments[0]);
-  console.log('---------');
+// function statement
+function greet(name) {
+  console.log('hello ' + name);
 }
+greet('John');
 
-greet();
+// function expression
+var greetFunc = function(name) {
+  console.log('hello ' + name);
+}
+greetFunc('John');
 
-greet('John', 'Doe', 'es');
+// Immediately invoked function expression (IIFE)
+var greeting = function(name) {
+
+  return 'Hello ' + name;
+
+}('John');
+
+console.log(greeting);
+
+var firstname = 'John';
+
+(function(name) {
+  var greeting = 'Hello';
+  console.log(greeting + ' ' + name);
+
+}(firstname)); // IIFE
