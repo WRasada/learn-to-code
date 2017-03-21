@@ -117,34 +117,57 @@
 // console.log(c);
 // console.log(d);
 
-// This keyword
+// 'This' keyword
 
-function a() {
-  console.log(this);
-}
+// function a() {
+//   console.log(this);
+// }
+//
+// a();
+//
+// var b = function() {
+//   console.log(this);
+// }
+//
+// b();
+//
+// var c = {
+//   name: 'The c object',
+//   log: function() {
+//     var self = this;
+//
+//     self.name = 'Updated c object',
+//     console.log(self);
+//
+//     var setName = function(newname) {
+//       self.name = newname;
+//     }
+//     setName('Updated again! the c object');
+//     console.log(self);
+//   }
+// }
+//
+// c.log();
 
-a();
+// 'Arguments' keyword
 
-var b = function() {
-  console.log(this);
-}
+function greet(firstname, lastname, language) {
 
-b();
+  language = language || 'en';
 
-var c = {
-  name: 'The c object',
-  log: function() {
-    var self = this;
-
-    self.name = 'Updated c object',
-    console.log(self);
-
-    var setName = function(newname) {
-      self.name = newname;
-    }
-    setName('Updated again! the c object');
-    console.log(self);
+  if (arguments.length === 0) {
+    console.log('Missing parameters!');
+    console.log('--------------');
+    return;
   }
+  console.log(firstname);
+  console.log(lastname);
+  console.log(language);
+  console.log(arguments);
+  console.log(arguments[0]);
+  console.log('---------');
 }
 
-c.log();
+greet();
+
+greet('John', 'Doe', 'es');
