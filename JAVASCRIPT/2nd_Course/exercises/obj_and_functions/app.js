@@ -1,4 +1,4 @@
-// // Exercise 1
+// Objects
 //
 // var person = new Object();
 //
@@ -20,7 +20,7 @@
 //
 // console.log(person);
 
-// Exercise 2
+// Object Literal
 
 // var Tony = {
 //   firstname: 'Tony',
@@ -43,15 +43,47 @@
 //   lastname: 'Doe'
 // });
 
-// Exercise 3
+// JSON and Object Literals
 
-var objectLiteral = {
-  firstname: 'Tony',
-  isAProgrammer: true
+// var objectLiteral = {
+//   firstname: 'Tony',
+//   isAProgrammer: true
+// }
+//
+// console.log(JSON.stringify(objectLiteral));
+//
+// var jsonValue = JSON.parse('{ "firstname": "Tony", "isAProgrammer": true }');
+//
+// console.log(jsonValue);
+
+// Functions are Objects
+//
+// function greet() {
+//   console.log('hi');
+// }
+//
+// greet.language = 'english';
+//
+// console.log(greet);
+
+// Function Expressions & Function Statements
+
+function greet() {
+  console.log('hi');
 }
 
-console.log(JSON.stringify(objectLiteral));
+greet();
 
-var jsonValue = JSON.parse('{ "firstname": "Tony", "isAProgrammer": true }');
+var anonymousGreet = function() {
+  console.log('hi');
+}
 
-console.log(jsonValue);
+anonymousGreet();
+
+function log(a) {
+  a();
+}
+
+log(function() {
+  console.log('hi');
+});
