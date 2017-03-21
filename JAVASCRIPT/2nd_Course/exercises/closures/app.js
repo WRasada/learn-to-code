@@ -10,51 +10,72 @@
 // sayHi('Tony');
 //
 
-function buildFunctions() {
+// function buildFunctions() {
+//
+//   var arr = [];
+//
+//   for(var i = 0; i < 3; i++) {
+//     arr.push(
+//       function() {
+//         console.log(i);
+//       }
+//     )
+//   }
+//
+//   return arr;
+//
+// }
+//
+// var fs = buildFunctions();
+//
+// fs[0]();
+// fs[1]();
+// fs[2]();
+//
+//
+//
+// function buildFunctions2() {
+//
+//   var arr = [];
+//
+//   for(var i = 0; i < 3; i++) {
+//     let j = i;
+//     arr.push(
+//       (function(j) {
+//         return function() {
+//           console.log(j);
+//         }
+//       }(i))
+//     )
+//   }
+//
+//   return arr;
+//
+// }
+//
+// var fs2 = buildFunctions2();
+//
+// fs2[0]();
+// fs2[1]();
+// fs2[2]();
 
-  var arr = [];
 
-  for(var i = 0; i < 3; i++) {
-    arr.push(
-      function() {
-        console.log(i);
-      }
-    )
+// function factory
+
+function makeGreeting(language) {
+
+  return function(firstname, lastname) {
+    if (language === 'en') {
+      console.log('Hello ' + firstname + ' ' + lastname);
+    }
+
+    if (language === 'es') {
+      console.log('Hola' + firstname + ' ' + lastname);
+    }
   }
-
-  return arr;
-
 }
 
-var fs = buildFunctions();
+var greetEnglish = makeGreeting('en');
+var greetSpanish = makeGreeting('es');
 
-fs[0]();
-fs[1]();
-fs[2]();
-
-
-
-function buildFunctions2() {
-
-  var arr = [];
-
-  for(var i = 0; i < 3; i++) {
-    let j = i;
-    arr.push(
-      (function(j) {
-        return function() {
-          console.log(j);
-        }
-      }(i))
-    )
-  }
-
-  return arr;
-
-}
-
-var fs2 = buildFunctions2();
-
-fs2[0]();
-fs2[1]();
-fs2[2]();
+greetEnglish('Wes', 'Rasada');
