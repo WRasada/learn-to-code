@@ -68,22 +68,51 @@
 
 // Function Expressions & Function Statements
 
-function greet() {
-  console.log('hi');
+// function greet() {
+//   console.log('hi');
+// }
+//
+// greet();
+//
+// var anonymousGreet = function() {
+//   console.log('hi');
+// }
+//
+// anonymousGreet();
+//
+// function log(a) {
+//   a();
+// }
+//
+// log(function() {
+//   console.log('hi');
+// });
+
+// By Value
+var a = 3;
+var b;
+
+b = a;
+a = 2;
+
+console.log(a);
+console.log(b);
+
+// By reference (all objects (including functions))
+var c = { greeting: 'hi' };
+var d;
+
+d = c;
+c.greeting = 'hello';  //mutate
+
+console.log(d);
+console.log(c);
+
+function changeGreeting(obj) {
+  obj.greeting = 'Hola';
 }
 
-greet();
+changeGreeting(d);
 
-var anonymousGreet = function() {
-  console.log('hi');
-}
-
-anonymousGreet();
-
-function log(a) {
-  a();
-}
-
-log(function() {
-  console.log('hi');
-});
+console.log(c);
+console.log(d);
