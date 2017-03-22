@@ -317,26 +317,41 @@
 
 // Initialization
 
-var people = [
-  {
-    firstname: 'John',
-    lastname: 'Doe',
-    addresses: [
-      '111 Main St.',
-      '222 Third St.'
-    ]
-  },
-  {
-    firstname: 'Jane',
-    lastname: 'Doe',
-    addresses: [
-      '333 Main St.',
-      '444 Fifth St.'
-    ],
-    greet: function() {
-      return 'Hello!';
-    }
-  }
-]
+// var people = [
+//   {
+//     firstname: 'John',
+//     lastname: 'Doe',
+//     addresses: [
+//       '111 Main St.',
+//       '222 Third St.'
+//     ]
+//   },
+//   {
+//     firstname: 'Jane',
+//     lastname: 'Doe',
+//     addresses: [
+//       '333 Main St.',
+//       '444 Fifth St.'
+//     ],
+//     greet: function() {
+//       return 'Hello!';
+//     }
+//   }
+// ]
+//
+// console.log(people);
+//
+// Strict Mode
+function logNewPerson() {
+  "use strict";
 
-console.log(people);
+  var person2;
+  persom2 = {};
+  console.log(persom2);
+}
+
+var person;
+persom = {};
+
+console.log(persom);
+logNewPerson();
