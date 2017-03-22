@@ -127,6 +127,7 @@
     self.lastName = lastName || '';
     self.language = language || 'en';
 
+    self.validate();
   }
 
   // trick borrowed from jQuery so we don't have to use the 'new' keyword
@@ -134,5 +135,5 @@
 
   // attach our Greetr to the global object, and provide a shorthand '$G' for ease of typing
   global.Greetr = global.G$ = Greetr;
-  
+
 }(window, jQuery));
