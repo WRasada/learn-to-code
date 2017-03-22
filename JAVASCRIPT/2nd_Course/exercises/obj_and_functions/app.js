@@ -267,20 +267,50 @@
 //
 // console.log(john.getFormalFullName());
 
-var a = new String('John');
+// var a = new String('John');
+//
+// console.log(a);
+//
+// String.prototype.isLengthGreaterThan = function(limit) {
+//   return this.length > limit;
+// }
+//
+// console.log('John'.isLengthGreaterThan(3));
+//
+// Number.prototype.isPositive = function() {
+//   return this > 0;
+// }
+//
+// var a = new Number(3);
+//
+// console.log(a.isPositive());
 
-console.log(a);
+// Object.create and pure prototypal inheritance
 
-String.prototype.isLengthGreaterThan = function(limit) {
-  return this.length > limit;
+var person = {
+  firstname: 'default',
+  lastname: 'default',
+  greet: function() {
+    return 'Hi ' + this.firstname;
+  }
 }
 
-console.log('John'.isLengthGreaterThan(3));
+var john = Object.create(person);
+john.firstname = 'John';
+john.lastname = 'Doe';
+console.log(john);
 
-Number.prototype.isPositive = function() {
-  return this > 0;
+john.greet();
+
+// polyfill
+
+if(!Object.create) {
+  Object.create = function (o) {
+    if (arguments.length > 1) {
+      throw new Error('Object.create implementation' + ' only accepts the first parameter.');
+    }
+    function F() {}
+    F.prototype = o;
+    return new F();
+  };
 }
-
-var a = new Number(3);
-
-console.log(a.isPositive());
