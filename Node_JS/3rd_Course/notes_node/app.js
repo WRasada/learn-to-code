@@ -30,6 +30,7 @@ const argv = yargs
   })
   .help()
   .argv;
+console.log(argv);
 let command = argv._[0];
 
 if (command === 'add') {

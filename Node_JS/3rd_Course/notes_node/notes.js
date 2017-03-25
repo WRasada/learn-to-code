@@ -15,6 +15,7 @@ let saveNotes = (notes) => {
 
 let addNote = (title, body) => {
   let notes = fetchNotes();
+  console.log(notes);
   let note = {
     title,
     body

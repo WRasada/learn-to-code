@@ -6,6 +6,6 @@
   "author": "Wes Rasada",
   "dependencies": {
     "lodash": "^4.17.4",
-    "yargs": "4.7.1"
+    "yargs": "^7.0.2"
   }
 }
