@@ -1,0 +1,10 @@
+{
+  "name": "ex1_repetition2",
+  "version": "1.0.0",
+  "description": "ex1 practice",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^7.0.2"
+  }
+}
