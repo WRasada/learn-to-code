@@ -1,0 +1,11 @@
+{
+  "name": "repetition",
+  "version": "1.0.0",
+  "description": "redo 1st project",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "yargs": "^7.0.2"
+  }
+}
