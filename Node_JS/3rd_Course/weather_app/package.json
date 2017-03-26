@@ -4,6 +4,7 @@
   "main": "app.js",
   "license": "MIT",
   "dependencies": {
+    "axios": "0.13.1",
     "request": "2.73.0",
     "yargs": "4.8.1"
   }
