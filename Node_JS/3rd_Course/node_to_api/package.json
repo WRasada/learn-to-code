@@ -4,6 +4,7 @@
   "main": "app.js",
   "license": "MIT",
   "dependencies": {
-    "mongodb": "^2.2.25"
+    "mongodb": "^2.2.25",
+    "mongoose": "^4.9.2"
   }
 }
