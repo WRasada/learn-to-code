@@ -1,0 +1,9 @@
+{
+  "name": "node_to_api",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^2.2.25"
+  }
+}
