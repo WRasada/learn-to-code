@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const middleware = require('./middleware/middleware');
 const { mongoose } = require('./db/mongoose');
 const { Todo } = require('./models/todo');
+const { User } = require('./models/user');
 
 const app = express();
 const port = process.env.PORT;
@@ -75,7 +76,20 @@ app.patch('/todos/:id', middleware.isValid, (req, res) => {
   }, (e) => {
     res.status(400).send(e);
   })
-})
+});
+
+// POST /users
+
+app.post('/users', (req, res) => {
+  let body = _.pick(req.body, ['email', 'password']);
+  let user = new User(body);
+
+  user.save().then((user) => {
+    res.send({ user });
+  }, (e) => {
+    res.status(400).send(e);
+  });
+});
 
 
 app.listen(port, () => {
