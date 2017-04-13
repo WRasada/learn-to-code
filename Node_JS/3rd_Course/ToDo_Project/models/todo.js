@@ -15,6 +15,10 @@ let TodoSchema = new Schema({
   completedAt: {
     type: Number,
     default: null
+  },
+  _creator: {
+    required: true,
+    type: Schema.Types.ObjectId,
   }
 });
 
