@@ -10,3 +10,4 @@ echo("Tater Tots", 3);
 echo("Test Commit", 2);
 echo("Test different branch commit", 5);
 echo("Test commit #2", 4);
+echo("Test 5", 1);
